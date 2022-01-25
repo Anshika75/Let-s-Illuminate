@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\anshi\OneDrive\Desktop\Web\lamp.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Beastly&family=Yuji+Mai&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;   
+}
+main{
+    height: 100vh;
+    width: 100vw;
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    position: relative;
+    overflow: hidden;
+}
+.mainlamp{
+    height: 120px;
+    width: 100px;
+    /* background-color: aqua; */
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+    transform-origin: top;
+    /* animation: moveb 2s linear infinite alternate; */
+}
+@keyframes moveb{
+    0%{
+        transform: rotate(5deg) translate(-50%) ;
+    }
+    100%{
+        transform: rotate(-5deg) translate(-50%) ;
+    } 
+}
+.mainlamp .bulb{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    height: 50px;
+    width: 70px;
+    background-color: #fff;
+    /* background-color: #F2F201; */
+    opacity: 0.3;
+    border-radius: 50%;
+    transition: all 1s ease-in-out;
+}
+.mainlamp .stick{
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translate(-50%);
+    height: 15px;
+    width: 25px;
+    background-color: #1565C0;
+    border-radius: 50px 50px 0 0;
+}
+.mainlamp .stick::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 90%);
+    height: 50px;
+    width: 100px;
+    border-radius: 75px 75px 0 0;
+    background-color: #1E88E5;
+}
+.mainlamp .stick::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    height: 40px;
+    width: 10px;
+    background-color: #1565C0;
+}
+.light{
+    height: 83%;
+    width: 300px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform:translate(-50%, 15%);
+    background:linear-gradient(to bottom, #F2F201, #FFCC00);
+    clip-path: polygon(40% 0,60% 0,100% 100%,0% 100%);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transform-origin: top;
+    /* animation: move 2s linear infinite alternate; */
+}
+
+@keyframes move{
+    0%{
+        transform: rotate(5deg) translate(-50%, 15%) ;
+    }
+    100%{
+        transform: rotate(-5deg) translate(-50%, 15%) ;
+    } 
+}
+
+.txtbox{
+    position: absolute;
+    bottom:45px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 120px;
+    width: 150px;
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    display: grid;
+    place-items: center;
+    color: orange;
+    text-align: center;
+    animation: tb 5s infinite both;
+}
+
+@keyframes tb{
+  0% {
+            transform:translate(-50%, 0%) scale3d(1, 1, 1);
+  }
+  30% {
+            transform:translate(-50%, 0%) scale3d(1.25, 0.75, 1);
+  }
+  40% {
+            transform:translate(-50%, 0%) scale3d(0.75, 1.25, 1);
+  }
+  50% {
+            transform:translate(-50%, 0%) scale3d(1.15, 0.85, 1);
+  }
+  65% {
+            transform:translate(-50%, 0%) scale3d(0.95, 1.05, 1);
+  }
+  75% {
+            transform:translate(-50%, 0%) scale3d(1.05, 0.95, 1);
+  }
+  100% {
+            transform:translate(-50%, 0%) scale3d(1, 1, 1);
+  }
+}
+
+.txtbox p{
+    display: grid;
+    place-items: center;
+    color: orange;
+    text-align: center;
+    font-family: 'Yuji Mai', serif;
+    font-size: 0.9rem;
+}
+.txtbox p.lap{
+    display: none;
+}
+.top .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 0;
+    width: 50%;
+}
+.top .flex1{
+    left: 0;
+    padding-right: 60px;
+}
+.top .flex2{
+    right: 0;
+    padding-left: 60px;
+}
+.bulbbox{
+    height: 100px;
+    width: 100px;
+    position: relative;
+    transform-origin: top;
+}
+.bulbbox2, .bulbbox4, .bulbbox5{
+    display: none;
+}
+.bulbbox .sbulb{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    height: 60px;
+    width: 60px;
+    background-color: #fff;
+    /* background-color: #F2F201; */
+    box-shadow: 0 0 20px #f1c40f;
+    opacity: 0.3;
+    border-radius: 50%;
+    transition: all 1s ease-in-out;
+}
+.bulbbox .sstick{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    height: 25px;
+    width: 20px;
+    background-color: #1565C0;
+    border-radius: 50px 50px;
+}
+.bulbbox .sstick::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    height:35px;
+    width: 10px;
+    background-color: #1565C0;
+}
+.lava{
+    height: 300px;
+    width: 150px;
+    clip-path: polygon(70% 0,30% 0,0 70%,20% 85%,0 100%,100% 100%,80% 85%,100% 70%);
+    background-image:linear-gradient(0deg, #1565C0 30%, #fff3 10%, #fff3 90%, #1565C0 10%);
+}
+.left{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+.right{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+.lavac{
+    filter: url("#abc");
+    position:absolute;
+    height:60%;
+    width:100%;
+    top:10%;
+    left:0;
+    overflow: hidden;
+}
+
+.slava{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #f1c40f;
+    background-color:#f1c40f;
+    display: none;
+    transition: all 1s ease-in-out;
+}
+.lava1{
+    width: calc(15% * 1.4);
+    height: 15%;
+    left: 45%;
+    top: 50%;
+    bottom:-15%;    
+    animation: blob-one ease-in-out 13s infinite alternate-reverse;
+}
+.lava2{
+    width: calc(22% * 1.4);
+    height: 22%;
+    right: 14%;
+    bottom:-15%;  
+    animation: blob-two ease-in-out 9s infinite alternate;
+}
+.lava3{
+    width: calc(32% * 1.4);
+    height: 32%;
+    bottom:-15%;
+    left: 14%; 
+    animation: blob-three ease-in-out 16s infinite alternate-reverse;
+}
+.left, .right{
+    display: none;
+}
+ @keyframes blob-one{
+    0%, 100%{
+      transform: translatey(-350%);
+    }
+    50%{
+      transform: translatey(350%);
+    }
+}
+  
+@keyframes blob-two{
+    0%, 100%{
+      transform: translatey(-500%);
+    }
+    50%{
+      transform: translatey(0%);
+    }
+}
+  
+@keyframes blob-three{
+    0%, 100%{
+      transform: translatey(0);
+    }
+    50%{
+      transform: translatey(-305%);
+    }
+}
+@keyframes smove{
+    0%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(-5deg);
+    } 
+}
+.buttonpage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #2d343675;
+    background-image: linear-gradient(315deg, #2d343677 0%, #0000007c 74%);
+    display: grid;
+    place-items: center;
+}
+.buttonpage #btn{
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #f1c40f;
+    padding: 25px;
+    cursor: pointer;
+    box-shadow:0px 0px 7px 0 #2b2200e1;
+    transition: all 0.5s ease-in-out;
+    font-family: 'Rubik Beastly', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+}
+.buttonpage #btn:hover{
+    border: 2px solid #FFCC00;
+    opacity: 0.5;
+}
+@media (min-width:1200px){
+    .txtbox p.mob{
+        display: none;
+    }
+    .txtbox p.lap{
+        display: block;
+        font-size: 0.8rem;
+    }
+    .bulbbox2, .bulbbox4, .bulbbox5{
+        display: block;
+    }
+    .left, .right{
+        display: block;
+    }
+}
+    </style>
+    <main>
+        <div class="light" id="light">
+
+        </div>
+        <div class="mainlamp" id="bulbc">
+            <div class="bulb" id="bulb"></div>
+            <div class="stick"></div>
+        </div>
+        <div class="top">
+            <div class="flex flex1">
+                <div class="bulbbox bulbbox1">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox2">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox3">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox4">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox5">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+            </div>
+            <div class="flex flex2">
+                <div class="bulbbox bulbbox1">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox2">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox3">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox4">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+                <div class="bulbbox bulbbox5">
+                    <div class="sstick"></div>
+                    <div class="sbulb"></div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="left lava">
+            <div class="lavac">
+            <div class="slava lava1"></div>
+            <div class="slava lava2"></div>
+            <div class="slava lava3"></div>
+            </div>
+        </div>
+        <div class="right lava">
+            <div class="lavac">
+            <div class="slava lava1"></div>
+            <div class="slava lava2"></div>
+            <div class="slava lava3"></div>
+            </div>
+        </div>
+        <div class="txtbox" id="txtbox">
+            <p class="mob">
+                Please view it on laptop for better experience.
+            </p>
+            <p class="lap">
+                Better to Illuminate than to merely Shine. Let your light shine.
+            </p>
+        </div>
+    </main>
+    <div class="buttonpage" id="btnbox">
+        <button id="btn">Let's Fix It</button>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="abc">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="abc" />
+            <feBlend in="SourceGraphic" in2="abc" />
+          </filter>
+        </defs>
+      </svg>
+    <script>
+        const bulb = document.getElementById('bulb');
+        const bulbc = document.getElementById('bulbc');
+        const btn = document.getElementById('btn');
+        const light = document.getElementById('light');
+        const txtbox = document.getElementById('txtbox');
+        var sbulb = document.querySelectorAll(".sbulb");
+        var slava = document.querySelectorAll(".slava");
+        var sbulbbox = document.querySelectorAll(".bulbbox");
+        var btnbox = document.getElementById("btnbox");
+        var i = 0;
+
+        const button = () => {
+            btn.style.display = "none";
+            bulb.style.opacity = "1";
+            bulbc.style.animation = "moveb 2s linear 1.5s infinite alternate";
+            bulb.style.backgroundColor = "#F2F201";
+            light.style.opacity = "0.7";
+            light.style.animation = "move 2s linear 1.5s infinite alternate";
+            txtbox.style.opacity = "1";
+            for(i=0; i<sbulb.length; i++){
+                sbulb[i].style.background = "linear-gradient(to bottom, #F2F201, #FFCC00)";
+                sbulb[i].style.opacity = "1";
+                sbulb[i].style.boxShadow = "0 0 20px #f1c40f";
+                sbulbbox[i].style.animation = "smove 2s linear 1.5s infinite alternate";
+            }
+            for(i=0; i<slava.length; i++){
+                slava[i].style.display = "block";
+            }
+            btnbox.style.opacity = 0;
+            setTimeout(() => {
+                btnbox.style.display = "none";
+            }, 1000);
+        }
+
+        btn.addEventListener("click", button);
+
+        
+    </script>
+</body>
+</html>
